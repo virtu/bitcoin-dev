@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+bear -- make -j$(( ($(nproc) + 1) / 2 ))

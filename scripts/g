@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+# Determine base directory for repositories
+SCRIPT_DIR=$(cd $(dirname $0) && pwd)
+REPO_DIR=$(dirname $SCRIPT_DIR)
+
+# clone/update the repo
+manage_repo() {
+    local repo_name=$1
+    local git_url=$2
+    local repo_path="$REPO_DIR/$repo_name"
+
+    if [[ -d "$repo_path" ]]; then
+        echo "Directory $repo_name exists. Updating repository..."
+        git -C "$repo_path" pull
+    else
+        echo "Directory $repo_name does not exist. Cloning repository..."
+        git clone $git_url $repo_path
+    fi
+}
+
+# Main logic based on script's argument
+case $1 in
+    "u"|"upstream")
+        manage_repo bitcoin-upstream https://github.com/bitcoin/bitcoin.git
+        ;;
+    "f"|"fork"|"")
+        manage_repo bitcoin git@github.com:$(whoami)/bitcoin.git
+        ;;
+    *)
+        echo "Invalid argument. Use 'u' or 'upstream' for the upstream repository; or 'f', 'fork' (or no argument) for a personal fork."
+        ;;
+esac

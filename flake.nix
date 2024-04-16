@@ -40,6 +40,7 @@
               sqlite
               libsystemtap # tracepoint support
               bear # compile_commands.json for cpp language servers
+              cirrus-cli # run cirrus locally
             ];
           };
       }

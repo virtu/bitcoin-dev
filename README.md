@@ -43,7 +43,6 @@ dependencies:
 The flake also includes the following non-Bitcoin Core dependencies:
 - bear (for creation of compiler-generated meta data used by C++ language servers such
   as [clangd](https://github.com/clangd/clangd) and [ccls](https://github.com/MaskRay/ccls))
-- cirrus-cli (for running Cirrus CI tests locally)
 
 ### Direnv
 
@@ -69,5 +68,3 @@ Current scripts:
 - `m`: run make (using nproc/2 jobs)
 - `mf`: run make fast (using nproc jobs)
 - `g`: clone/update repo: `g u` for upstream, `g f` (or simply `g`) for fork repo.
-- `cirrus`: transparent wrapper for cirrus to prevent environment variables set by
-  direnv from bleeding into Docker containers and interfering their environments

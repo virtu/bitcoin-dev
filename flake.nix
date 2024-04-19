@@ -12,16 +12,10 @@
         pkgs = import nixpkgs { inherit system; };
       in
       {
-        devShell = pkgs.mkShell.override
-          {
-            stdenv = pkgs.overrideCC pkgs.llvmPackages.libcxxStdenv # use llmv/clang
-              (pkgs.llvmPackages.stdenv.cc.override {
-                bintools = pkgs.llvmPackages.bintools; # use llvm linker
-              });
-          }
+        devShell = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; }
           {
             nativeBuildInputs = with pkgs; [
-              clang-tools # clang wrapper (to guarantee view of headers in stdlib)
+              clang-tools # correctly-wrapped clangd as cpp language server
             ];
             buildInputs = with pkgs; [
               autoconf
@@ -38,8 +32,10 @@
               db48
               openssl
               sqlite
+              bear # compile_commands.json for various cpp language servers
+            ] ++ lib.optional stdenv.isLinux [
+              # linux-only dependencies
               libsystemtap # tracepoint support
-              bear # compile_commands.json for cpp language servers
             ];
           };
       }

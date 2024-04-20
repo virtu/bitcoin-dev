@@ -1,0 +1,9 @@
+#/usr/bin/env zsh
+
+if [[ ! -f src/bitcoind ]]; then
+    echo "wrapper warning: src/bitcoind does not exist"
+    exit 1
+fi
+
+echo "wrapper: running src/bitcoind -datadir=$BITCOIN_DATADIR $@"
+src/bitcoind -datadir=$BITCOIN_DATADIR "$@"

@@ -1,3 +1,9 @@
+# direnv cache
 .direnv
+
+# bitcoin repos
 bitcoin
 bitcoin-upstream
+
+# datadir contents
+datadir/

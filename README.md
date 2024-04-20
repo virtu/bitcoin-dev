@@ -68,3 +68,5 @@ Current scripts:
 - `m`: run make (using nproc/2 jobs)
 - `mf`: run make fast (using nproc jobs)
 - `g`: clone/update repo: `g u` for upstream, `g f` (or simply `g`) for fork repo.
+- `bitcoind` and `bitcoin-cli`: wrappers to run binaries in `src/` after building,
+  ensuring custom datadir, P2P and RPC ports, and enabling pruning (5GB).

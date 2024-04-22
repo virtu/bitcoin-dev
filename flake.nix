@@ -36,7 +36,12 @@
             ] ++ lib.optional stdenv.isLinux [
               # linux-only dependencies
               libsystemtap # tracepoint support
+              bpftrace # required by tracepoint scripts in `contrib/tracing`
+              bcc # required by functional tests for tracepoints
             ];
+            shellHook = ''
+              echo "Run export PYTHONPATH=$PYTHONPATH:${pkgs.bcc}/lib/python3.11/site-packages/bcc-0.29.1-py3.11.egg to run functional tests."
+            '';
           };
       }
     );

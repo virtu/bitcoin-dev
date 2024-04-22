@@ -70,3 +70,4 @@ Current scripts:
 - `g`: clone/update repo: `g u` for upstream, `g f` (or simply `g`) for fork repo.
 - `bitcoind` and `bitcoin-cli`: wrappers to run binaries in `src/` after building,
   ensuring custom datadir, P2P and RPC ports, and enabling pruning (5GB).
+- `pr`: convenience script for checking our pull requests

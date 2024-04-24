@@ -39,7 +39,7 @@
               bpftrace # required by tracepoint scripts in `contrib/tracing`
               bcc # required by functional tests for tracepoints
             ];
-            shellHook = ''
+            shellHook = with pkgs; lib.optionalString stdenv.isLinux ''
               echo "Run export PYTHONPATH=$PYTHONPATH:${pkgs.bcc}/lib/python3.11/site-packages/bcc-0.29.1-py3.11.egg to run functional tests."
             '';
           };

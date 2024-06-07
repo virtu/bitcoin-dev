@@ -1,9 +1,9 @@
 #/usr/bin/env zsh
 
 if [[ ! -f src/bitcoin-cli ]]; then
-    echo "wrapper warning: src/bitcoin-cli does not exist"
+    echo "wrapper warning: src/bitcoin-cli does not exist" >&2
     exit 1
 fi
 
-echo "wrapper: running src/bitcoin-cli -datadir=$BITCOIN_DATADIR $@"
+echo "wrapper: running src/bitcoin-cli -datadir=$BITCOIN_DATADIR $@" >&2
 src/bitcoin-cli -datadir=$BITCOIN_DATADIR "$@"

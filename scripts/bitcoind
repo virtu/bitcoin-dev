@@ -1,9 +1,12 @@
 #/usr/bin/env zsh
 
-if [[ ! -f src/bitcoind ]]; then
-    echo "wrapper warning: src/bitcoind does not exist" >&2
+GIT_ROOT=$(git rev-parse --show-toplevel)
+BIN=$GIT_ROOT/src/bitcoind
+
+if [[ ! -f $BIN ]]; then
+    echo "wrapper warning: $BIN does not exist" >&2
     exit 1
 fi
 
-echo "wrapper: running src/bitcoind -datadir=$BITCOIN_DATADIR $@" >&2
-src/bitcoind -datadir=$BITCOIN_DATADIR "$@"
+echo "wrapper: running $BIN -datadir=$BITCOIN_DATADIR $@" >&2
+$BIN -datadir=$BITCOIN_DATADIR "$@"

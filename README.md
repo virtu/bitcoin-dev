@@ -24,20 +24,13 @@ covered by Nix's `eachDefaultSystem` function.
 
 The flake uses `llvm`/`clang` to compile the code, and includes the following Bitcoin Core
 dependencies:
- - autoconf
- - automake
- - bison
- - boost
- - git
- - libevent
- - libtool
+ - cmake
  - pkg-config
- - protobuf
  - python3
- - zeromq
- - db48
- - openssl
+ - libevent
+ - boost
  - sqlite
+ - git
  - libsystemtap (for tracepoint support)
 
 The flake also includes the following non-Bitcoin Core dependencies:
@@ -60,13 +53,11 @@ The `scripts` directory can be added to the current shell's `PATH` variable via
 [direnv](https://github.com/direnv/direnv).
 
 Current scripts:
-- `a`: run automake
-- `ac`: run automake and configure
-- `acm`: run automake, configure and make (using nproc/2 jobs)
-- `acmf`: run automake, configure and make fast (using nproc jobs)
 - `c`: run configure
 - `m`: run make (using nproc/2 jobs)
+- `cm`: configure and make (using nproc/2 jobs)
 - `mf`: run make fast (using nproc jobs)
+- `acmf`: configure and make fast (using nproc jobs)
 - `g`: clone/update repo: `g u` for upstream, `g f` (or simply `g`) for fork repo.
 - `bitcoind` and `bitcoin-cli`: wrappers to run binaries in `src/` after building,
   ensuring custom datadir, P2P and RPC ports, and enabling pruning (5GB).

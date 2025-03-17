@@ -1,3 +1,4 @@
 #!/usr/bin/env zsh
 
+cmake -B build
 bear -- cmake --build build -j$(nproc)

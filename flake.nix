@@ -18,20 +18,18 @@
               clang-tools # correctly-wrapped clangd as cpp language server
             ];
             buildInputs = with pkgs; [
-              autoconf
-              automake
-              bison
-              boost
-              git
-              libevent
-              libtool
+              cmake
               pkg-config
-              protobuf
               python3
-              zeromq
-              db48
-              openssl
-              sqlite
+              libevent
+              boost
+              sqlite # descriptor wallet
+              zeromq # zmq
+              git
+              # libtool
+              # protobuf
+              # db48
+              # openssl
               bear # compile_commands.json for various cpp language servers
             ] ++ lib.optional stdenv.isLinux [
               # linux-only dependencies

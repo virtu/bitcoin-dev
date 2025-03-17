@@ -26,10 +26,6 @@
               sqlite # descriptor wallet
               zeromq # zmq
               git
-              # libtool
-              # protobuf
-              # db48
-              # openssl
               bear # compile_commands.json for various cpp language servers
             ] ++ lib.optional stdenv.isLinux [
               # linux-only dependencies

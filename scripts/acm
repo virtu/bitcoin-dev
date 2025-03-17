@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-
-sh autogen.sh
-./configure
-bear -- make -j$(( ($(nproc) + 1) / 2 ))

@@ -1,7 +1,7 @@
 #/usr/bin/env zsh
 
 GIT_ROOT=$(git rev-parse --show-toplevel)
-BIN=$GIT_ROOT/src/bitcoind
+BIN=$GIT_ROOT/build/bin/bitcoind
 
 if [[ ! -f $BIN ]]; then
     echo "wrapper warning: $BIN does not exist" >&2

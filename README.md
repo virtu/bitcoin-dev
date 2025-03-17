@@ -54,10 +54,10 @@ The `scripts` directory can be added to the current shell's `PATH` variable via
 
 Current scripts:
 - `c`: run configure
-- `m`: run make (using nproc/2 jobs)
-- `cm`: configure and make (using nproc/2 jobs)
-- `mf`: run make fast (using nproc jobs)
-- `acmf`: configure and make fast (using nproc jobs)
+- `m`: run cmake (using nproc/2 jobs)
+- `cm`: configure and cmake (using nproc/2 jobs)
+- `mf`: run cmake fast (using nproc jobs)
+- `acmf`: configure and cmake fast (using nproc jobs)
 - `g`: clone/update repo: `g u` for upstream, `g f` (or simply `g`) for fork repo.
 - `bitcoind` and `bitcoin-cli`: wrappers to run binaries in `src/` after building,
   ensuring custom datadir, P2P and RPC ports, and enabling pruning (5GB).
